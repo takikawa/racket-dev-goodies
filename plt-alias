@@ -1,0 +1,22 @@
+# Put this in .bashrc
+function plt() {
+
+   if [[ $# == 0 ]]; then
+       echo "PLTHOME = $PLTHOME"
+   elif [[ $# == 1 ]]; then
+       if [[ -d "$1" ]] ; then
+           DIR=`cd "$1"; pwd -P`
+           export PLTHOME="$DIR"
+           export TEXINPUTS="$PLTHOME"/collects/slatex:
+           export PLTPLANETDIR="$PLTHOME"/add-on/planet
+           export PLTADDONDIR="$PLTHOME"/add-on
+       else
+           echo "ERROR: '$1' does not exist."
+           false
+       fi
+   else
+       echo "ERROR: expected 'plt' or 'plt <DIR>', got 'plt $*'"
+       false
+   fi
+
+}

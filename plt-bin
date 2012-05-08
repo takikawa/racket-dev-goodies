@@ -1,0 +1,30 @@
+#!/bin/bash
+#
+# Alias the following binaries in your $PATH to this script:
+#  - drracket
+#  - drscheme
+#  - gracket
+#  - gracket-text
+#  - mred
+#  - mred-text
+#  - mzscheme
+#  - racket
+#  - raco
+#  - scribble
+#  - slatex
+#  - slideshow
+
+NAME=`basename "$0"`
+
+if [[ "$PLTHOME" == "" ]]; then
+   echo "$NAME: PLTHOME has not been set."
+   exit -1
+else
+   BIN="$PLTHOME/bin/$NAME"
+   if [[ -x "$BIN" ]]; then
+       exec "$BIN" "$@"
+   else
+       echo "$NAME: no executable at \"$BIN\"."
+       exit -1
+   fi
+fi

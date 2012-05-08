@@ -1,0 +1,16 @@
+#!/bin/bash
+
+NAME=`basename $0`
+
+if [[ "$PLTHOME" == "" ]]; then
+   echo "$NAME: PLTHOME has not been set."
+   exit -1
+fi
+
+BUILDDIR="$PLTHOME/src/build"
+
+rm -rf "$BUILDDIR"
+mkdir "$BUILDDIR"
+pushd "$BUILDDIR"
+CPPFLAGS=-I/opt/local/include ../configure && make -j2 && make install
+popd
