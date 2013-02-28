@@ -14,8 +14,8 @@
 #  - slatex
 #  - slideshow
 
-NAME=`basename "$0"`
-
+NAME="$1"
+shift 
 if [[ "$PLTHOME" == "" ]]; then
    echo "$NAME: PLTHOME has not been set."
    exit -1
