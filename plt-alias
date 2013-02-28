@@ -1,4 +1,21 @@
 # Put this in .bashrc
+
+# Alias the following binaries in your $PATH to this script:
+PATH_TO_PLT_BIN="plt-bin"
+
+alias drracket=$PATH_TO_PLT_BIN
+alias drscheme=$PATH_TO_PLT_BIN
+alias gracket=$PATH_TO_PLT_BIN
+alias gracket-text=$PATH_TO_PLT_BIN
+alias mred=$PATH_TO_PLT_BIN
+alias mred-text=$PATH_TO_PLT_BIN
+alias mzscheme=$PATH_TO_PLT_BIN
+alias racket=$PATH_TO_PLT_BIN
+alias raco=$PATH_TO_PLT_BIN
+alias scribble=$PATH_TO_PLT_BIN
+alias slatex=$PATH_TO_PLT_BIN
+alias slideshow=$PATH_TO_PLT_BIN
+
 function plt() {
 
    if [[ $# == 0 ]]; then
