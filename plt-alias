@@ -1,4 +1,18 @@
 # Put this in .bashrc
+
+# Alias the following binaries in your $PATH to this script:
+# alias drracket="plt-bin"
+# alias drschem="plt-bin"
+# alias gracke="plt-bin"
+# alias gracket-tex="plt-bin"
+# alias mre="plt-bin"
+# alias mred-tex="plt-bin"
+# alias mzschem="plt-bin"
+# alias racke="plt-bin"
+# alias rac="plt-bin"
+# alias scribbl="plt-bin"
+# alias slate="plt-bin"
+# alias slidesho="plt-bin"
 function plt() {
 
    if [[ $# == 0 ]]; then
