@@ -8,8 +8,17 @@ if [[ "$PLTHOME" == "" ]]; then
 fi
 
 BUILDDIR="$PLTHOME/racket/src/build"
+OLDBUILDDIR="$PLTHOME/src/build"
 
-rm -rf "$BUILDDIR"
-pushd "$PLTHOME"
-CPPFLAGS=-I/opt/local/include make
-popd
+if [[ -d "$PLTHOME/pkgs" ]]; then
+   rm -rf "$BUILDDIR"
+   pushd "$PLTHOME"
+   CPPFLAGS=-I/opt/local/include make
+   popd
+else
+   rm -rf "$OLDBUILDDIR"
+   mkdir "$OLDBUILDIR"
+   pushd "$OLDBUILDDIR"
+   CPPFLAGS=-I/opt/local/include ../configure && make -j2 && make install
+   popd
+fi

@@ -21,8 +21,11 @@ if [[ "$PLTHOME" == "" ]]; then
    exit -1
 else
    BIN="$PLTHOME/racket/bin/$NAME"
+   OLDBIN="$PLTHOME/bin/$NAME"
    if [[ -x "$BIN" ]]; then
        exec "$BIN" "$@"
+   elif [[ -x "$OLDBIN" ]]; then
+       exec "$OLDBIN" "$@"
    else
        echo "$NAME: no executable at \"$BIN\"."
        exit -1
