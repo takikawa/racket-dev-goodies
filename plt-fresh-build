@@ -7,10 +7,9 @@ if [[ "$PLTHOME" == "" ]]; then
    exit -1
 fi
 
-BUILDDIR="$PLTHOME/src/build"
+BUILDDIR="$PLTHOME/racket/src/build"
 
 rm -rf "$BUILDDIR"
-mkdir "$BUILDDIR"
-pushd "$BUILDDIR"
-CPPFLAGS=-I/opt/local/include ../configure && make -j2 && make install
+pushd "$PLTHOME"
+CPPFLAGS=-I/opt/local/include make
 popd

@@ -20,7 +20,7 @@ if [[ "$PLTHOME" == "" ]]; then
    echo "$NAME: PLTHOME has not been set."
    exit -1
 else
-   BIN="$PLTHOME/bin/$NAME"
+   BIN="$PLTHOME/racket/bin/$NAME"
    if [[ -x "$BIN" ]]; then
        exec "$BIN" "$@"
    else

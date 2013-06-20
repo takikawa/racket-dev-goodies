@@ -24,7 +24,7 @@ function plt() {
        if [[ -d "$1" ]] ; then
            DIR=`cd "$1"; pwd -P`
            export PLTHOME="$DIR"
-           export TEXINPUTS="$PLTHOME"/collects/slatex:
+           export TEXINPUTS="$PLTHOME"/pkgs/slatex:
            export PLTPLANETDIR="$PLTHOME"/add-on/planet
            export PLTADDONDIR="$PLTHOME"/add-on
        else
