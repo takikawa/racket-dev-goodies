@@ -17,7 +17,7 @@ if [[ -d "$PLTHOME/pkgs" ]]; then
    popd
 else
    rm -rf "$OLDBUILDDIR"
-   mkdir "$OLDBUILDIR"
+   mkdir "$OLDBUILDDIR"
    pushd "$OLDBUILDDIR"
    CPPFLAGS=-I/opt/local/include ../configure && make -j2 && make install
    popd
