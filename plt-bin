@@ -1,18 +1,7 @@
 #!/bin/bash
 #
-# Alias the following binaries in your $PATH to this script:
-#  - drracket
-#  - drscheme
-#  - gracket
-#  - gracket-text
-#  - mred
-#  - mred-text
-#  - mzscheme
-#  - racket
-#  - raco
-#  - scribble
-#  - slatex
-#  - slideshow
+# Put this script in your bin/ folder and point
+# PATH_TO_PLT_BIN to its location
 
 NAME="$1"
 shift 
