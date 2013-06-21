@@ -20,20 +20,26 @@ function plt() {
 
    if [[ $# == 0 ]]; then
        echo "PLTHOME = $PLTHOME"
-   elif [[ $# == 1 ]]; then
-       if [[ -d "$1" ]] ; then
+   elif [[ $# -ge 1 ]]; then
+       if [[ -d "$1" ]]; then
            DIR=`cd "$1"; pwd -P`
-           export PLTHOME="$DIR"
-           export TEXINPUTS="$PLTHOME"/pkgs/slatex:
-           export PLTPLANETDIR="$PLTHOME"/add-on/planet
-           export PLTADDONDIR="$PLTHOME"/add-on
+           shift
        else
            echo "ERROR: '$1' does not exist."
            false
        fi
-   else
-       echo "ERROR: expected 'plt' or 'plt <DIR>', got 'plt $*'"
-       false
+       if [[ $# == 0 ]]; then
+           export PLTHOME="$DIR"
+           export TEXINPUTS="$PLTHOME"/pkgs/slatex:
+           export PLTPLANETDIR="$PLTHOME"/add-on/planet
+           export PLTADDONDIR="$PLTHOME"/add-on
+       elif [[ $# -gt 0 ]]; then
+           (PLTHOME="$DIR"
+            TEXINPUTS="$PLTHOME"/pkgs/slatex:
+            PLTPLANETDIR="$PLTHOME"/add-on/planet
+            PLTADDONDIR="$PLTHOME"/add-on
+            eval "$@")
+       fi
    fi
 
 }
