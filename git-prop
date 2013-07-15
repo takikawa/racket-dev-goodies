@@ -1,0 +1,3 @@
+#!/bin/sh
+top="$(git rev-parse --show-toplevel)" || exit 1
+exec "$top/pkgs/plt-services/meta/props" "$@"
