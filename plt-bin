@@ -1,22 +1,42 @@
 #!/bin/bash
-#
-# Put this script in your bin/ folder and point
-# PATH_TO_PLT_BIN to its location
 
-NAME="$1"
-shift 
-if [[ "$PLTHOME" == "" ]]; then
-   echo "$NAME: PLTHOME has not been set."
-   exit -1
-else
-   BIN="$PLTHOME/racket/bin/$NAME"
-   OLDBIN="$PLTHOME/bin/$NAME"
-   if [[ -x "$BIN" ]]; then
-       exec "$BIN" "$@"
-   elif [[ -x "$OLDBIN" ]]; then
-       exec "$OLDBIN" "$@"
-   else
-       echo "$NAME: no executable at \"$BIN\"."
-       exit -1
-   fi
+# the executable name is whatever link is running this
+EXE="`basename \"$0\"`"
+
+if [[ "$PLTHOME" = "" ]]; then
+   echo "$EXE: PLTHOME has not been set." 1>&2; exit -1
 fi
+if [[ ! -d "$PLTHOME" ]]; then
+ echo "$EXE: PLTHOME directory does not exist: $PLTHOME" 1>&2; exit -11
+fi
+
+PLTADDONDIR="$PLTHOME/add-on"
+
+export PLTHOME PLTCOLLECTS PLTADDONDIR
+
+# or run this script and give it an executable argument
+if [[ "$EXE" = "plt-bin" && "$1" != "" ]]; then EXE="$1"; shift; fi
+
+# short names
+if [[ "${#EXE}" -le 5 ]]; then
+ case "$EXE" in
+   ( r  ) EXE="racket" ;;
+   ( dr ) EXE="drracket" ;;
+   ( gr ) EXE="gracket" ;;
+ esac
+fi
+
+BIN="$PLTHOME/racket/bin/$EXE"
+
+# support pre-package repository layout
+OLDBIN="$PLTHOME/bin/$EXE"
+
+if [[ -x "$BIN" ]]; then
+    exec "$BIN" "$@"
+elif [[ -x "$OLDBIN" ]]; then
+    exec "$OLDBIN" "$@"
+else
+    echo "$NAME: no executable at \"$BIN\"."
+    exit -1
+fi
+
