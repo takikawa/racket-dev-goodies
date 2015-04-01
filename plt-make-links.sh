@@ -2,16 +2,18 @@
 
 # set up aliases to plt-bin
 
-PLT_BIN=$HOME/local/bin/plt-bin
-PREFIX=$HOME/local/bin
+PLT_BIN_DEFAULT=$HOME/local/bin/plt-bin
+PREFIX_DEFAULT=$HOME/local/bin
 NAMES="drracket mred mzpp pdf-slatex plt-r5rs racket
        scribble slideshow gracket mred-text mzscheme
        plt-games plt-r6rs racket-package-manager setup-plt
        swindle gracket-text mzc mztext plt-help plt-web-server
        raco slatex"
 
-read -e -p "Where is the plt-bin script located? " -i $PLT_BIN PLT_BIN
-read -e -p "In which directory should I create the links? " -i $PREFIX PREFIX
+read -e -p "Where is the plt-bin script located? (default: $PLT_BIN_DEFAULT)" PLT_BIN
+PLT_BIN=${PLT_BIN:-$PLT_BIN_DEFAULT}
+read -e -p "In which directory should I create the links? (default: $PREFIX_DEFAULT)" PREFIX
+PREFIX=${PREFIX:-$PREFIX_DEFAULT}
 
 for name in $NAMES
 do
