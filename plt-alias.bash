@@ -1,15 +1,15 @@
 # Put this in .bashrc
 
 function plt() {
-
+BASEDIR=""
    if [[ $# == 0 ]]; then
        echo "PLTHOME = $PLTHOME"
    elif [[ $# -ge 1 ]]; then
-       if [[ -d "$1" ]]; then
-           DIR=`cd "$1"; pwd -P`
+       if [[ -d "$BASEDIR$1" ]]; then
+           DIR=`cd "$BASEDIR$1"; pwd -P`
            shift
        else
-           echo "ERROR: '$1' does not exist."
+           echo "ERROR: '$BASEDIR$1' does not exist."
            false
        fi
        if [[ $# == 0 ]]; then
