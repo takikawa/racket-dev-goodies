@@ -10,7 +10,7 @@ Scripts to make life easier for Racket developers.
   * `git-prop` - adds the `prop` git command to read file properties
 
 Originally developed by Eli Barzilay with contributions by
-William Bowman, Vincent St-Amour, Stevie Strickland, Asumu Takikawa,
+William Bowman, Andrew Kent, Vincent St-Amour, Stevie Strickland, Asumu Takikawa,
 and Sam Tobin-Hochstadt.
 
 
@@ -49,7 +49,7 @@ PLTHOME = /Users/dave/repos/plt/head
 
 ---
 
-Copyright © 2012-2014 Eli Barzilay
+Copyright © 2012-2015 Eli Barzilay
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by
