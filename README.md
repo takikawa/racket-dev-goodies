@@ -10,7 +10,7 @@ Scripts to make life easier for Racket developers.
   * `git-prop` - adds the `prop` git command to read file properties
 
 Originally developed by Eli Barzilay with contributions by
-William Bowman, Andrew Kent, Vincent St-Amour, Stevie Strickland, Asumu Takikawa,
+Spenser Bauman, William Bowman, Andrew Kent, Vincent St-Amour, Stevie Strickland, Asumu Takikawa,
 and Sam Tobin-Hochstadt.
 
 
