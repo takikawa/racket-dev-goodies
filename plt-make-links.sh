@@ -22,6 +22,7 @@ do
     echo "$PREFIX/$name already exists, not linking";
     continue
   else
+    mkdir -p $PREFIX
     ln -s $PLT_BIN $PREFIX/$name
     echo "Linking $PREFIX/$name";
   fi
