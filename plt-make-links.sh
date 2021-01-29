@@ -9,7 +9,8 @@ NAMES="drracket mred mzpp pdf-slatex plt-r5rs racket
        plt-games plt-r6rs racket-package-manager setup-plt
        swindle gracket-text mzc mztext plt-help plt-web-server
        raco slatex
-       racketcs racocs scribblecs gracketcs racket-documentationcs"
+       racketcs racocs scribblecs gracketcs racket-documentationcs
+       racketbc racobc scribblebc plt-r5rsbc plt-r6rsbc plt-web-serverbc"
 
 read -e -p "Where is the plt-bin script located? (default: $PLT_BIN_DEFAULT)" PLT_BIN
 PLT_BIN=${PLT_BIN:-$PLT_BIN_DEFAULT}
